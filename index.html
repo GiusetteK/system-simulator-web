@@ -14,32 +14,37 @@
         <h1>SYSTEM SIMULATOR</h1>
         <p class="subtitle">Synthetic telemetry · Local only · No real devices or networks</p>
       </header>
+
       <div class="console-panel">
-        <aside class="sidebar" aria-label="Commands">
-          <h2>COMMANDS</h2>
+        <aside class="sidebar" aria-label="Command guide">
+          <h2>COMMAND GUIDE</h2>
+          <p class="sidebar-hint">Select a command to read what it does. It will not run automatically.</p>
           <div class="command-list">
-            <button type="button" data-command="scan">scan</button>
-            <button type="button" data-command="list">list</button>
-            <button type="button" data-command="status">status</button>
-            <button type="button" data-command="log">log</button>
-            <button type="button" data-command="help">help</button>
-            <button type="button" data-command="clear">clear</button>
+            <button type="button" data-help="scan"><code>scan</code><span>Generate systems</span></button>
+            <button type="button" data-help="list"><code>list</code><span>View latest group</span></button>
+            <button type="button" data-help="access"><code>access ID</code><span>Open a system report</span></button>
+            <button type="button" data-help="status"><code>status</code><span>Summarize the group</span></button>
+            <button type="button" data-help="log"><code>log</code><span>View session events</span></button>
+            <button type="button" data-help="clear"><code>clear</code><span>Reset console display</span></button>
+            <button type="button" data-help="help"><code>help</code><span>Show command reference</span></button>
           </div>
           <div class="legend">
-            <h2>STATUS</h2>
+            <h2>STATUS KEY</h2>
             <div><span class="dot green"></span>CONNECTED</div>
             <div><span class="dot yellow"></span>SCANNING</div>
             <div><span class="dot magenta"></span>ENCRYPTED</div>
           </div>
         </aside>
-        <section class="main-panel" aria-label="Simulator console">
+
+        <section class="main-panel" aria-label="Simulator terminal">
+          <div class="terminal-title"><span class="terminal-light"></span> SIMULATOR TERMINAL <span class="terminal-state">READY</span></div>
+          <div id="output" class="output" aria-live="polite" aria-label="Terminal output" title="Click here to focus the command line"></div>
           <form id="command-form" class="command-bar">
-            <span class="brand">operator@console</span>
-            <span aria-hidden="true">$</span>
-            <input id="command-input" type="text" autocomplete="off" aria-label="Console command" placeholder="Type 'help' or 'scan'" />
-            <button type="submit">Run</button>
+            <label class="prompt" for="command-input">operator@console&nbsp; $</label>
+            <input id="command-input" type="text" autocomplete="off" aria-label="Type a simulator command" placeholder="Type a command, e.g. scan" />
+            <button type="submit">Run <span aria-hidden="true">↵</span></button>
           </form>
-          <div id="output" class="output" aria-live="polite" aria-label="Console output"></div>
+          <p class="input-hint">Click the terminal or input, type a command, then press Enter or Run.</p>
         </section>
       </div>
       <footer>All telemetry is fictional and generated in your browser.</footer>
