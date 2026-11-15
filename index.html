@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Offline browser-based simulator with fictional telemetry." />
     <title>System Simulator Web</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css?v=2" />
   </head>
   <body>
     <main class="app-shell">
@@ -16,18 +16,19 @@
       </header>
 
       <div class="console-panel">
-        <aside class="sidebar" aria-label="Command guide">
-          <h2>COMMAND GUIDE</h2>
-          <p class="sidebar-hint">Select a command to read what it does. It will not run automatically.</p>
-          <div class="command-list">
-            <button type="button" data-help="scan"><code>scan</code><span>Generate systems</span></button>
-            <button type="button" data-help="list"><code>list</code><span>View latest group</span></button>
-            <button type="button" data-help="access"><code>access ID</code><span>Open a system report</span></button>
-            <button type="button" data-help="status"><code>status</code><span>Summarize the group</span></button>
-            <button type="button" data-help="log"><code>log</code><span>View session events</span></button>
-            <button type="button" data-help="clear"><code>clear</code><span>Reset console display</span></button>
-            <button type="button" data-help="help"><code>help</code><span>Show command reference</span></button>
-          </div>
+        <aside class="sidebar" aria-label="Command list">
+          <h2>COMMANDS</h2>
+          <p class="sidebar-hint">Click a command title for its explanation.</p>
+          <nav class="command-list" aria-label="Available commands">
+            <button type="button" class="command-help" data-help="scan"><code>scan</code></button>
+            <button type="button" class="command-help" data-help="list"><code>list</code></button>
+            <button type="button" class="command-help" data-help="access"><code>access ID</code></button>
+            <button type="button" class="command-help" data-help="status"><code>status</code></button>
+            <button type="button" class="command-help" data-help="log"><code>log</code></button>
+            <button type="button" class="command-help" data-help="clear"><code>clear</code></button>
+            <button type="button" class="command-help" data-help="help"><code>help</code></button>
+            <button type="button" class="command-help" data-help="exit"><code>exit</code></button>
+          </nav>
           <div class="legend">
             <h2>STATUS KEY</h2>
             <div><span class="dot green"></span>CONNECTED</div>
@@ -38,17 +39,27 @@
 
         <section class="main-panel" aria-label="Simulator terminal">
           <div class="terminal-title"><span class="terminal-light"></span> SIMULATOR TERMINAL <span class="terminal-state">READY</span></div>
-          <div id="output" class="output" aria-live="polite" aria-label="Terminal output" title="Click here to focus the command line"></div>
+          <div id="output" class="output" role="log" aria-live="polite" aria-label="Terminal output" title="Click to focus the command input"></div>
           <form id="command-form" class="command-bar">
-            <label class="prompt" for="command-input">operator@console&nbsp; $</label>
-            <input id="command-input" type="text" autocomplete="off" aria-label="Type a simulator command" placeholder="Type a command, e.g. scan" />
+            <label class="prompt" for="command-input">operator@console $</label>
+            <input id="command-input" name="command" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Type a simulator command" placeholder="Click here and type, e.g. scan" />
             <button type="submit">Run <span aria-hidden="true">↵</span></button>
           </form>
-          <p class="input-hint">Click the terminal or input, type a command, then press Enter or Run.</p>
+          <p class="input-hint">Click the black terminal area or this input, type a command, then press Enter or Run.</p>
         </section>
       </div>
       <footer>All telemetry is fictional and generated in your browser.</footer>
     </main>
-    <script src="app.js"></script>
+
+    <dialog id="command-dialog" class="command-dialog" aria-labelledby="dialog-title">
+      <form method="dialog" class="dialog-close-form"><button class="dialog-close" aria-label="Close explanation">×</button></form>
+      <p class="eyebrow">COMMAND INFO</p>
+      <h2 id="dialog-title"></h2>
+      <p id="dialog-description"></p>
+      <p class="dialog-usage"><strong>Usage:</strong> <code id="dialog-usage"></code></p>
+      <button type="button" id="dialog-ok" class="dialog-ok">Got it</button>
+    </dialog>
+
+    <script src="app.js?v=2"></script>
   </body>
 </html>
