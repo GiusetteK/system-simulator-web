@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Offline browser-based simulator with fictional telemetry." />
+    <title>System Simulator Web</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <p class="eyebrow">OFFLINE CONSOLE</p>
+        <h1>SYSTEM SIMULATOR</h1>
+        <p class="subtitle">Synthetic telemetry · Local only · No real devices or networks</p>
+      </header>
+      <div class="console-panel">
+        <aside class="sidebar" aria-label="Commands">
+          <h2>COMMANDS</h2>
+          <div class="command-list">
+            <button type="button" data-command="scan">scan</button>
+            <button type="button" data-command="list">list</button>
+            <button type="button" data-command="status">status</button>
+            <button type="button" data-command="log">log</button>
+            <button type="button" data-command="help">help</button>
+            <button type="button" data-command="clear">clear</button>
+          </div>
+          <div class="legend">
+            <h2>STATUS</h2>
+            <div><span class="dot green"></span>CONNECTED</div>
+            <div><span class="dot yellow"></span>SCANNING</div>
+            <div><span class="dot magenta"></span>ENCRYPTED</div>
+          </div>
+        </aside>
+        <section class="main-panel" aria-label="Simulator console">
+          <form id="command-form" class="command-bar">
+            <span class="brand">operator@console</span>
+            <span aria-hidden="true">$</span>
+            <input id="command-input" type="text" autocomplete="off" aria-label="Console command" placeholder="Type 'help' or 'scan'" />
+            <button type="submit">Run</button>
+          </form>
+          <div id="output" class="output" aria-live="polite" aria-label="Console output"></div>
+        </section>
+      </div>
+      <footer>All telemetry is fictional and generated in your browser.</footer>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
