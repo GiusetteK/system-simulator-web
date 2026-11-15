@@ -5,14 +5,14 @@ const NODES = ["NORTH", "EAST", "WEST", "SOUTH"];
 const MEMORIES = ["8 GB", "16 GB", "32 GB"];
 const LOGS = ["Handshake generated", "Synchronization complete", "Routine check passed", "Data packet received"];
 const COMMAND_HELP = {
-  scan: { title: "scan", usage: "scan (or s)", description: "Genera un gruppo casuale di 5–15 sistemi fittizi e mostra la telemetria sintetica. I dati sono creati localmente nel browser." },
-  list: { title: "list", usage: "list (or ls)", description: "Mostra gli ID e un riepilogo dei sistemi dell'ultimo gruppo generato. Esegui prima scan." },
-  access: { title: "access ID", usage: "access 003 (or access SYSTEM-003)", description: "Mostra il rapporto completo del sistema indicato, se appartiene all'ultimo gruppo. Esegui prima scan." },
-  status: { title: "status", usage: "status", description: "Riepiloga i conteggi degli stati e calcola CPU e segnale medi del gruppo corrente." },
-  log: { title: "log", usage: "log", description: "Mostra gli ultimi eventi registrati durante la sessione corrente." },
-  clear: { title: "clear", usage: "clear", description: "Pulisce il terminale e mostra di nuovo il messaggio iniziale. I dati generati restano disponibili." },
-  help: { title: "help", usage: "help (or ?)", description: "Mostra un riepilogo dei comandi disponibili nel terminale." },
-  exit: { title: "exit", usage: "exit (or q)", description: "Termina la demo corrente. Ricarica la pagina per iniziare una nuova sessione." },
+  scan: { title: "scan", usage: "scan (or s)", description: "Generates a random batch of 5–15 fictional systems and prints synthetic telemetry locally in the browser." },
+  list: { title: "list", usage: "list (or ls)", description: "Shows the IDs and summary of the most recently generated system group. Run scan first." },
+  access: { title: "access ID", usage: "access 003 (or access SYSTEM-003)", description: "Displays the full report for a selected system if it belongs to the current batch. Run scan first." },
+  status: { title: "status", usage: "status", description: "Summarizes system states and computes average CPU and signal strength for the active group." },
+  log: { title: "log", usage: "log", description: "Shows recent session events recorded during the current browser session." },
+  clear: { title: "clear", usage: "clear", description: "Clears the terminal and shows the initial welcome screen again without removing the generated data." },
+  help: { title: "help", usage: "help (or ?)", description: "Displays a summary of all available commands in the terminal." },
+  exit: { title: "exit", usage: "exit (or q)", description: "Ends the current demo session. Reload the page to start a new one." },
 };
 
 const state = { currentBatch: [], nextNumber: 1, events: [] };
