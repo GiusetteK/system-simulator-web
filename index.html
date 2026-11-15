@@ -4,21 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Offline browser-based simulator with fictional telemetry." />
-    <title>System Simulator Web</title>
-    <link rel="stylesheet" href="style.css?v=2" />
+    <title>System Simulator</title>
+    <link rel="stylesheet" href="style.css?v=3" />
   </head>
   <body>
     <main class="app-shell">
       <header class="topbar">
-        <p class="eyebrow">OFFLINE CONSOLE</p>
+        <p class="eyebrow">LOCAL DEMO // OFFLINE</p>
         <h1>SYSTEM SIMULATOR</h1>
-        <p class="subtitle">Synthetic telemetry · Local only · No real devices or networks</p>
+        <p class="subtitle">Synthetic telemetry only — no real devices or networks are accessed.</p>
       </header>
 
       <div class="console-panel">
-        <aside class="sidebar" aria-label="Command list">
+        <aside class="sidebar" aria-label="Command reference">
           <h2>COMMANDS</h2>
-          <p class="sidebar-hint">Click a command title for its explanation.</p>
+          <p class="sidebar-hint">Select a command for help.</p>
           <nav class="command-list" aria-label="Available commands">
             <button type="button" class="command-help" data-help="scan"><code>scan</code></button>
             <button type="button" class="command-help" data-help="list"><code>list</code></button>
@@ -29,8 +29,8 @@
             <button type="button" class="command-help" data-help="help"><code>help</code></button>
             <button type="button" class="command-help" data-help="exit"><code>exit</code></button>
           </nav>
-          <div class="legend">
-            <h2>STATUS KEY</h2>
+          <div class="legend" aria-label="Status colors">
+            <h2>STATUS</h2>
             <div><span class="dot green"></span>CONNECTED</div>
             <div><span class="dot yellow"></span>SCANNING</div>
             <div><span class="dot magenta"></span>ENCRYPTED</div>
@@ -38,28 +38,28 @@
         </aside>
 
         <section class="main-panel" aria-label="Simulator terminal">
-          <div class="terminal-title"><span class="terminal-light"></span> SIMULATOR TERMINAL <span class="terminal-state">READY</span></div>
-          <div id="output" class="output" role="log" aria-live="polite" aria-label="Terminal output" title="Click to focus the command input"></div>
+          <div class="terminal-title"><span class="terminal-light" aria-hidden="true"></span> SYSTEM CONSOLE <span class="terminal-state">READY</span></div>
+          <div id="output" class="output" role="log" aria-live="polite" aria-label="Terminal output" title="Click terminal output to focus the command line"></div>
           <form id="command-form" class="command-bar">
-            <label class="prompt" for="command-input">operator@console $</label>
-            <input id="command-input" name="command" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Type a simulator command" placeholder="Click here and type, e.g. scan" />
-            <button type="submit">Run <span aria-hidden="true">↵</span></button>
+            <label class="prompt" for="command-input">operator@console:~$</label>
+            <input id="command-input" name="command" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Enter a command" placeholder="type command here" />
+            <button type="submit" aria-label="Run command">ENTER</button>
           </form>
-          <p class="input-hint">Click the black terminal area or this input, type a command, then press Enter or Run.</p>
+          <p class="input-hint">Click the prompt/input area, type a command, then press Enter.</p>
         </section>
       </div>
-      <footer>All telemetry is fictional and generated in your browser.</footer>
+      <footer>SIMULATED DATA ONLY · GENERATED LOCALLY IN YOUR BROWSER</footer>
     </main>
 
     <dialog id="command-dialog" class="command-dialog" aria-labelledby="dialog-title">
       <form method="dialog" class="dialog-close-form"><button class="dialog-close" aria-label="Close explanation">×</button></form>
-      <p class="eyebrow">COMMAND INFO</p>
+      <p class="eyebrow">COMMAND REFERENCE</p>
       <h2 id="dialog-title"></h2>
       <p id="dialog-description"></p>
       <p class="dialog-usage"><strong>Usage:</strong> <code id="dialog-usage"></code></p>
-      <button type="button" id="dialog-ok" class="dialog-ok">Got it</button>
+      <button type="button" id="dialog-ok" class="dialog-ok">CLOSE</button>
     </dialog>
 
-    <script src="app.js?v=2"></script>
+    <script src="app.js?v=3"></script>
   </body>
 </html>
